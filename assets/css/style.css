@@ -5,9 +5,27 @@ font-family: 'Mansalva', cursive;
 font-family: 'Gloria Hallelujah', cursive;
 }
 
-.background-image {
+/* .background-image {
     width: 700px;
     height: 600px;
-    background-image: url("bgdesert.jpg");
-
+    background-image: url("assets/images/back.jpg");
+    background-color: tomato;
+} */
+.container {
+    width: 1000px;
+    height:900px;
+    background-color: teal;
 }
+
+.jumbotron {
+    opacity: 0.75;
+    color: rgb(211, 26, 26);
+}
+
+.question {
+    width: 500px;
+    height: 400px;
+    margin: 18px 98px 31px 6px;
+    border: 2px solid rgb(37, 53, 83);
+}
+
