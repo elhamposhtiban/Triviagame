@@ -8,5 +8,5 @@ font-family: 'Gloria Hallelujah', cursive;
 .background-image {
     width: 900px;
     height: 800px;
-    
+    background-image: url(/assets/images/pictures/1.jpg); 
 }
