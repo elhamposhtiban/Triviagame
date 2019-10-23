@@ -69,11 +69,29 @@ Number8,
 Number9,
 Number10]
 
-function startbotton() {
-  start = "<p class='text-center main-button-container'><a class='btn btn-warning btn-md btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
-  $("major-area").append(start);
-  startbotton();
-}
-  // $(".major-area").html("<h2>" + questions[1].question + "</h2>");
-// }
+//generating function for creatin start button 
+function startButton() {
+ const start = $("#major-area").html("<button type=button class='btn btn-warning start-button'>Start Quiz</button>");
+  
+ }
+ startButton();
+// // creation on click event for start button
+ $("#major-area").click( function startButton(){
+
+  generateQuestions();
+//   // timerWrapper();
+});
+
+ function generateQuestions () {
+
+  const getHtml = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[questionCounter].question + "</p><p class='first-answer answer'>A. " + questions[questionCounter].allAnswer[0] + "</p><p class='answer'>B. " + questions[questionCounter].allAnswer[1] + "</p><p class='answer'>C. "+questions[questionCounter].allAnswer[2]+"</p><p class='answer'>D. "+questions[questionCounter].allAnswer[3]+"</p>";
+  $("#major-area").html(getHtml);
+  // "<h2>" + questions[1].question + "</h2>"
+ }
+ 
+
+
+
+
+
 
