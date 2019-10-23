@@ -5,15 +5,15 @@ font-family: 'Mansalva', cursive;
 font-family: 'Gloria Hallelujah', cursive;
 }
 
-/* .background-image {
-    width: 700px;
-    height: 600px;
-    background-image: url("assets/images/back.jpg");
-    background-color: tomato;
-} */
+body{
+  
+    background-image: url("../images/back.jpg");
+
+} 
 .container {
     width: 1000px;
     height:900px;
+    opacity: 0.75;
     background-color: teal;
 }
 
