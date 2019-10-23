@@ -7,6 +7,7 @@ let theClock;
 let correctTally = 0;
 let incorrectTally = 0;
 let unansweredTally = 0;
+const audioElement = document.createElement("audio");
 const Number1 = {
   question: " What is Joey's catchphrase?", 
   correctAnswer: "How you doin?",
@@ -68,6 +69,21 @@ Number7,
 Number8,
 Number9,
 Number10]
+
+
+// giving the source to audio element
+audioElement.setAttribute("src", "Assets/audio/friends_theme_song.mp3");
+
+// Theme Button
+$(".theme-button").on("click", function() {
+  audioElement.play();
+});
+
+// Pause Button
+$(".pause-button").on("click", function() {
+  audioElement.pause();
+});
+
 
 //generating function for creatin start button 
 function startButton() {
