@@ -13,19 +13,20 @@ body{
 .container {
     width: 1000px;
     height:900px;
-    opacity: 0.75;
-    background-color: teal;
+    opacity: 0.8;
+    background-color: rgb(201, 194, 194); 
 }
 
 .jumbotron {
-    opacity: 0.75;
+    opacity: 0.7;
     color: rgb(211, 26, 26);
+    margin-top: 30px;
 }
 
-/* .question {
-    width: 500px;
+.question-container {
+    width: 600px;
     height: 400px;
-    margin: 18px 98px 31px 6px;
-    border: 2px solid rgb(37, 53, 83);
-} */
+    /* margin:132px -151px 69px 261px; */
+}
+
 
