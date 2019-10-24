@@ -1,7 +1,6 @@
 
-$(document).ready(function() {
 //creating variable here 
-let counter = 30;
+let counter = 20;
 let questionCounter = 0;
 let selecterAnswer;
 let theClock;
@@ -90,7 +89,7 @@ Number7,
 Number8,
 Number9,
 Number10]
-
+$( document ).ready(function() {
 // giving the source to audio element
 audioElement.setAttribute("src", "Assets/audio/friends_theme_song.mp3");
 
@@ -107,14 +106,14 @@ $(".pause-button").on("click", function() {
 //generating function for creatin start button 
 function startButton() {
  const start = $("#major-area").html("<button type=button class='btn btn-warning start-button'>Start Quiz</button>");
-  
- }
+}
  startButton();
+ 
 // // creation on click event for start button
  $("#major-area").click( function startButton(){
 
   generateQuestions();
-//   // timerWrapper();
+  timerWrapper();
 });
 
 //generating answer click
@@ -124,58 +123,112 @@ $("#major-area").on("click", ".answer-button", function (){
 if(selecterAnswer === questions[questionCounter].correctAnswer)
 {
   clearInterval(theClock);
+  console.log("clearInterval(theClock)");
   generateWin();
+  console.log("I'm right")
 }
 else {
   clearInterval(theClock);
   generateLoss();
+  console.log("I'm stupid")
 }
 
-});
+ });
 
 //call reset function
-$("body").on("click", ".reset-button", function(){
-  resetGame();
-});
+ $("body").on("click", ".reset-button", function(){
+   resetGame();
+ });
 
-}); // close document. ready here
+});
 
 //creating timeout function here
 function timeoutLoss() {
-  unansweredTally++;
-  timeOut = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Time's Out!  The correct answer was: " + questions[questionCounter].correctAnswer + "</p>" 
+     unansweredTally++;
+   timeOut = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'> Time's Out!  The correct answer was: " + questions[questionCounter].correctAnswer + "</p>" 
   $("#mainArea").html(timeOut);
-  setTimeout(wait, 3000);  //  change to 4000 or other amount
+  setTimeout(wait, 4000);  
 }
 
+//creating win function
 function generateWin() {
   correctTally++;
   win = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>"+"<p class='text-center'> Correct! </p>"+questions[questionCounter].imageCorrect;
   $("#mainArea").html(win);
   
-  setTimeout(wait, 3000);  //end generatewin
+  setTimeout(wait, 4000);   
 }
 
+//creating loss function
 function generateLoss() {
   incorrectTally++;
   loss = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ questions[questionCounter].correctAnswer + "</p>" + questions[questionCounter].imageIncorrect;
   $("#mainArea").html(loss);
-  setTimeout(wait, 3000); 
+  setTimeout(wait, 4000); 
 }
 
 //creating a function which can return timer, question an asnwer on the screen
  function generateQuestions () {
+  // $( document ).ready(function() {
+    // console.log( "ready!" );
   const getHtml = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[questionCounter].question + "</p> <button class='first-answer answer-button'>A. " + questions[questionCounter].allAnswer[0] + "</button> <button class='answer-button'>B. " + questions[questionCounter].allAnswer[1] + "</button> <button class='answer-button'>C. "+questions[questionCounter].allAnswer[2]+"</button> <button class='answer-button'>D. "+questions[questionCounter].allAnswer[3]+"</button>";
   $("#major-area").html(getHtml);
- }
+//  });
+}
 
 
+ function wait() {
+  //ternary operator replacing if/else for generate more questions
+if (questionCounter < 10 )
+{
+  questionCounter++;
+  generateQuestions();
+  counter = 20;
+  timerWrapper();
+} 
+else {
+  finalScreen();
+}
+}; //end function
+
+function timerWrapper() {
+  theClock = setInterval(twentySeconds, 1000);
+  function twentySeconds() {
+      if (counter === 0) {
+        console.log("yeaaa");
+          clearInterval(theClock);
+          timeoutLoss();
+      }
+      else {
+          counter--;
+      }
+      $(".timer").html(counter);
+  }
+}
+
+function finalScreen() {
+  final = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>FINISH! now you can see your answers" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-warning btn-md btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
+  $("#mainArea").html(final);
+}
+
+function resetGame() {
+  questionCounter = 0;
+  correctTally = 0;
+  incorrectTally = 0;
+  unansweredTally = 0;
+  counter = 20;
+  generateQuestions();
+  timerWrapper();
+}
  
-//  "select answer:" + selecterAnswer
+// //  "select answer:" + selecterAnswer
 
-// $("#major-area").append("Correct Answer!" + questions[questionCounter].imageCorrect);
-// correctTally ++;
+// // $("#major-area").append("Correct Answer!" + questions[questionCounter].imageCorrect);
+// // correctTally ++;
 
-// $("#major-area").append("Wrong Answer!" + questions[questionCounter].imageIncorrect);
-// incorrectTally++;
+// // $("#major-area").append("Wrong Answer!" + questions[questionCounter].imageIncorrect);
+// // incorrectTally++;
 
+// $( document ).ready(function() {
+
+//   })}
