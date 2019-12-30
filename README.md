@@ -1,3 +1,3 @@
 # Triviagame
 
-### this is trivia a game based on Friends show there are ten question snd for each questions you can coose your answer between four option you have and at the ned app will show you the summary of the question you answer correct and the wrong one .
+### this is trivia a game based on Friends show there are ten questions and for each questions you can choose your answer between four options you have and at the ned app will show you the summary of the questions you answer correct and the wrong.
