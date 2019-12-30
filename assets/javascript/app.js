@@ -234,7 +234,7 @@ function resetGame() {
  
  
 // // creation on click event for start button
-function startButton(){
+function startButton() {
   generateQuestions();
   timerWrapper();
 }; 
