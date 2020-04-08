@@ -1,10 +1,17 @@
-# Triviagame
+# Trivia game
 
- this is a trivia game based on Friends show there are ten questions and for each question you can choose your answer between four options you have and at the end app will show you the summary of the questions you answer correct and wrong.
+ This is trivia a game based on Friends show.This application is a timed trivia game where the user will be prompted to start and complete a series of questions. The game will utilize HTML, Bootstrap CSS, JQuery, & Javascript.
+
+## Getting started 
+Click the deployed link below to use the application.
 
  ## Deployment
 
-  [Link](https://elhamposhtiban.github.io/Triviagame/) 
+  [Link](https://elhamposhtiban.github.io/Triviagame/)
+  
+## Animated Gifs/Pictures of App
+
+![Application](/assets/images/trivia.gif)
 
  ## Built With
 
